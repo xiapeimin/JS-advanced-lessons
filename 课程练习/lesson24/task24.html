@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //$("td:eq(索引值)")选中特定索引值的元素  $("td:gt(索引值)")
+
+    // 生成一个jQuery包装集$(html标记) $(js对象)
+    // 获取表单元素的value值，$(元素).val()
+    // $(选择器).append(jquery包装集) 向前面选中元素内部最后位置添加新节点
+    // $(选择器).remove() 将选中元素移除掉
+    $("#username").blur(function(){
+        var $error = $("<span class='error'>用户名不能为空</span>");
+        var inputVal = $(this).val();
+        if(inputVal == ""){
+            $this.parent().append($error);
+        }
+        else{
+            $(".error").remove();
+        }
+    })
+
+    //会覆盖
+    $(document).ready(function(){
+        alert(1);
+    })
+    $(document).ready(function(){
+        alert(1);
+    })
+
+    /*
+        val() 用于获取或者设置表单元素的value值
+        html() 用于获取或者设置选中与元素标签内部的html内容
+        css() 用于设置元素的样式参数可以是对象或两个参数
+    */
+
+    $(#ursename).blur(function(){
+        var inputVal = $(this)
+    })
+
+    /*
+        attr("属性名","属性值") 设置特定与元素的属性
+        attr("属性名") 
+    */
+
+    /*
+        1. $get 向指定地址
+    */
+
+    //$.get("")
+
+    //页面更新时
+
+    
+
+
+
+</script>
+</html>

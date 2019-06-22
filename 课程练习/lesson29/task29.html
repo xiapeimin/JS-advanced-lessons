@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+         
+    */
+    function fn1(){
+        var arr1 = Array.from(arguments);
+        console.log(arr1);
+    }
+    fn1(1,2,3);
+
+    /*
+        Array.
+    */
+
+    /*
+        copyWithin(target,start,end)
+        target 复制的目标位置
+        start 复制的起始位置
+        end 复制的结束位置（不包含）
+    */
+    let arr1 = [0,1,2,3,4,5];
+    console.log(arr1.copyWithin(0,3,5));
+
+    /*
+        find()查找第一个符合特定条件的元素 并返回
+    */
+    let arr2 = [10,20,30,40,50];
+    let el = arr2.find(function (element) {  
+        return element > 19;      
+    });
+    console.log(el);
+
+    /*
+        findIndex() 返回符合条件的第一个元素的索引值
+    */
+    let elIndex = arr2.findIndex(function (element) {  
+        return element > 29;
+    })
+    console.log(elIndex);
+
+    /*
+        keys()  获取到的是数组的索引
+        values()  获取到的数组元素值
+        include()  是否包含元素
+        可以使用for ... 
+    */
+
+    /*
+        ES6简化写法
+        不兼容IE
+    */
+    var username = 'lily';
+    var person = {
+        username,
+        show() {
+            console.log(this.username);
+        }
+    }
+    person.show();
+
+    let bar = 'foo';
+    let obj = {
+        bar: "obj1"
+    }
+    console.log(obj.bar);
+
+    /*
+        如果属性名希望是个变量
+        [变量名]
+    */
+
+    /*
+        Object.is(value1,value2)
+        判断value1和value2是否相等
+
+        Object.assign()
+    */
+    let target = {"username":"zhangsan"};
+    let source1 = {"age": 20};
+    let source2 = {"sex": "male"};
+    console.log(Object.assign(target,source1,source2));
+
+
+    let obj1 = {"username":"zhangsan","age":20};
+    //for(let i of )
+
+
+    var obj = {
+        objName: "obj1",
+        showName: function () {  
+            setTimeout(function () {  
+                console.log(this);
+                console.log(this.objName);
+            },3000);
+        }
+    }
+    obj.showName();
+
+    /*
+        1.带有默认值的参数默认是声明的，在函数内部不能再重复定义
+        2.带有默认值的参数需要写到没有默认值的后面  
+    */
+
+    function fn1(x,y=2,z=3) {  
+        return x+y+z;
+    }
+    fn1(1);
+    fn1(1,4);
+    fn1(1,4,6);
+
+    /*
+        剩余操作
+        可以接收剩下的所有实参
+        必须放在参数的最后位置上
+
+        剩余操作符对应变量最后得到一个数组
+
+    */
+    function fn1(...y){
+        console.log(arguments);
+    }
+
+    /*
+        扩展操作符
+
+        将数组转化为以，为分割的参数结构
+        是剩余操作符的逆操作
+    */
+    function fn2(a,b,c,d,f) {  
+        console.log(a,b,c,d,f);
+        console.log(arguments);
+    }
+    fn2(1,...[2,3,4,5]);
+    fn2(1,2,3,4,5);
+
+</script>
+</html>
