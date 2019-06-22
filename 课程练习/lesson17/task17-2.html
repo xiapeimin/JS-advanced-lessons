@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="username" id="username" />
+</body>
+<script>
+    (function(w,d){
+        function InputIdentify(inputId){
+            this._init(inputId);
+            this._effect();
+        }
+
+        InputIdentify.prototype._init = function(inputId){
+            var inputObject = d.getElementById("inputId");
+            this.inputObject = inputObject;
+        }
+
+        InputIdentify.prototype._effect = function(){
+            this.inputObject.onblur = function(){
+                console.log("文本框失去焦点");
+            }
+            this.inputObject.onfocus = function(){
+                console.log("文本框获得焦点");
+            }
+        }
+        w.InputIdentify = InputIdentify;
+
+    })(window,document)
+
+    var input1 = new InputIdentify("username");
+
+    /*
+        内置对象方法：
+        1.确定使用的方法是构造函数的静态方法还是原型方法
+        2.查看MDN该方法相关定义，作用
+        3.查看该方法的相关参数
+        （1）如果包含了回调函数，还需要回调函数的相关参数
+        （2）哪些参数是必须的，哪些是可选的
+        4.该方法执行得到的返回值
+    */
+
+
+</script>
+</html>

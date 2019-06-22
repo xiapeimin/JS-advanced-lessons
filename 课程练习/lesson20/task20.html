@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    /*
+        正则表达式的结构：
+          /正则表达式文本 / 标识符
+          [xyz] 从中括号中的字符选任意一个 
+          i标识符：是否忽略大小写 写i忽略 不写区分大小写
+          g标识符：是否全局检索  写了全局检索  不写 检索到一个匹配成功就停止
+    */
+    
+    var reg1 = /[bcf]at/gi;  //匹配成功的 再拼接at
+    var reg2 = new RegExp(/[bcf]at/,"gi");
+    var reg3 = new RegExp("/[bcf]at/","gi");
+    var str1 = "bat cat fat Fat difijfi";  //3种定义方法
+    console.log(str1.match(reg1));
+
+    /*
+        元字符
+    */
+
+    /* 
+        字符的分类：
+        \d: 匹配阿拉伯数字  代表0到9的数字 [1-9]
+        \D: 取反  匹配的不是阿拉伯数组  [^1-9]
+
+        \w: 匹配所有的字母，数字，下划线
+    */
+    var reg1 = /a\d/gi;
+    var str1 = "a1bcda2kkee";
+    console.log(str1.replace(reg1,"x"));
+
+    var reg2 = /a\D/gi;
+    var str2 = "a1aba2ac";
+    console.log(str2.replace(reg2,"x"));
+
+
+    /*
+        字符的集合
+    */
+    var reg1 = /[abc]\d/gi;
+    var str1 = "a1b2c3d4dfdfdfd";
+    console.log(str1.replace(reg1,"x"));
+
+    var reg2 = /[abc][0-9]/gi;
+    var str2 = "a1b2c3d4e5";
+    console.log(str2.replace(reg2,"x"));
+
+    var reg3 = /[^0-9]/gi;
+    var str3 = "1a2b3c";
+    str3.replace(str3,"x");
+
+    /*
+        匹配开头字符是数字 第二个字符是a-f 第三个字符是空格
+    */
+   var reg4 = /\d[a-f]\s/gi;
+   
+    /*
+        \d 表示阿拉伯数字【0-9】
+        \D
+
+        字符集合
+           [abcdef] 从中括号集合中任取一个字符
+           [^abcdef] 排除中括号内的字符的任意一个字符
+
+        字符边界
+           ^a    表示以特定字符开头
+           b&    表示以特定字符结尾
+
+        数量词
+           a*    表示匹配前面的字符0次或多次
+           a+    表示匹配前面的字符1次或多次
+           a?    表示匹配前面的字符0次或1次
+           a(n)  表示匹配前面的字符n次
+           a{m,n}表示至少匹配m次，至多匹配n次
+           a{m,} 表示至少匹配m次
+           x|y   表示匹配x或者y
+            
+    */
+
+    /*
+        用小括号包裹的规则内容，称之为分组
+    */
+    var reg1 = /(ss\d)a/gi;
+    var str1 = "ss1abcdefg";
+    reg1.exec(str1);
+    /*
+        reg.exec(str)
+        如果可以匹配的，返回数组
+        如果不能匹配，返回null
+           返回的数组结构
+           [整个正则匹配到的内容，分组匹配到的内容]
+    */
+
+
+    var reg1 = /(\dss)a(\dss)/gi;
+    var reg2 = /(\dss)a(\dss)/gi;
+    var str1 = "1ssa1ssfdfdfdf";
+    str1.replace(reg1,"x");
+
+    /*
+        String.prototype
+           var result = str.replace(正则表达式，替换成的内容)
+           返回值result是被替换后字符串
+
+           var result = str.match(正则表达式)
+           返回result,如果匹配成功返回数组，如果匹配失败，返回的是null
+
+           var result = str.search(正则表达式)
+           返回值是匹配位置的起始索引值
+           
+
+    */
+
+    var reg = /(aa)b\d/gi;
+
+    var str = "aab2hello";
+    str.match(reg);
+
+
+
+
+
+</script>
+</html>

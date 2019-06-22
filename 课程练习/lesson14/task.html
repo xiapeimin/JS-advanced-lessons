@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var obj = {x:5};
+    Object.defineProperty(obj,"y",{
+        configurable:false,
+        writable:false,
+        enumerable:true,
+        value:6
+    });
+    Object.getOwnPropertyDescriptor(obj,"x");
+
+    //Object.prototype.
+
+    var o1 = {x:1};
+    var o2 = Object.create(o1);
+    Object.prototype.sayhello = function(){
+        console.log("hello world");
+    }
+    console.log(o2._proto_ == o1);
+    o2.x = 2;//往o2自身上添加属性x
+    delete o2.x;//delete只能删除它自身所具有的属性
+    o2._proto_.x = 3;
+    console.log(o1.x);
+    console.log(o2.x);
+
+    //对象的原型链尽头，Object.prototype._proto_  (null)
+
+    var obj1 = {x:1};
+    var obj2 = Object.create(obj2);
+    console.log(obj2._proto_);
+    console.log(obj2._proto_._proto_);
+    console.log(obj2._proto_._proto_._proto_);
+
+    obj2.sayhello();
+    
+</script>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Person(username,age){
+        this.username = username;
+        this.age = age;
+        // this.sayhello = function(){
+        //     console.log("hello world");
+        // }
+    }
+    //节省内存空间
+    Person.prototype.sayhello = function(){
+        console.log("hello world");
+    }
+    var person1 = new Person("zhangsan",20);
+    var person2 = new Person("lisi",25);
+    console.log(person1._proto_ == Person.prototype);
+    console.log(person1,person2);
+
+    person1.sayhello();
+    person2.sayhello();
+
+    function Person2(username,age){
+        this.username = username;
+        this.age = age;
+    }
+    Person2.prototype.sayhello = function(){
+        console.log("hello world");
+    }
+    var person3 = new Person2("zhangsan",20);
+    console.log(person3._proto_ == Person2.prototype);
+    console.log(person3._proto_._proto_ == Object.prototype);
+    console.log(person3._proto_._proto_._proto_ == Object.prototype);
+
+    console.log(Person2.prototype.constructor == Person);
+    console.log(Object.prototype.constructor == Object);
+
+    /*
+         定义一个car对象，height,width,weight 
+         再定义一个smallCar 对象，自身具有color，seatNum属性
+         让smallCar继承car的所有属性，使用create方法和构造函数实现
+    */
+    var car = {
+        height:150,
+        width:200,
+        weight:2000
+    };
+
+    var smallCar = Object.create(car);
+    smallCarl.color = "red";
+    smallCar.seatNum = 4;
+    console.log(smallCar.height,smallCar.width);
+    console.log(smallCar.color);
+
+    function CreateSmallCar(color,seatNum){
+        this.color = color;
+        this.seatNum = seatNum;
+    }
+    CreateSmallCar.prototype = car;
+    var smallCar = new CreateSmallCar("red",4);
+    console.log(smallCar._proto_ == CreateSmallCar.prototype);
+    
+    console.log(smallCar.weight,smallCar.height);
+    console.log(smallCar.color,smallCar.seatNum);
+    
+
+    (function(){
+
+    })()
+    
+    for(var i = 0;i < 5;i++){
+        //事件的绑定的回调函数里面
+        //定时执行，延迟执行
+    }
+
+    //闭包
+    function fn1(){
+        var x = 1;
+        function fn2(){
+            return ++x;
+        }
+        return fn2;
+    }
+    var result = fn1();
+    console.log(result());
+    console.log(result());
+
+    
+
+</script>
+</html>

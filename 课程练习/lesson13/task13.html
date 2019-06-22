@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task13</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var o = {
+        _x:1,
+        get x(){
+            return this._x;
+        },
+        set(val){
+            if(0 < x && x <150){
+                this._x = val;
+            }else{
+                console.log("年龄不符合格式要求")
+            }   
+        }
+    }
+
+    o.x = 200;
+    //console.log(o._x,o._x);
+
+    var o2 = {
+        "username": "zhangsan",
+        "age" : 20
+    }
+    console.log(o2.username);
+    console.log(o2["username"]);
+    var newPro = "sex";
+    o2[newPro] = "male";//[]内可以放变量 "."不能放变量
+
+    for(var i in o2){
+        console.log(o2[i]);
+    }
+    //删除对象的属性
+    delete o2.age;
+
+    
+
+
+
+</script>
+</html>
